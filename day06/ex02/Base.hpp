@@ -1,15 +1,12 @@
-#ifndef __BASE_HPP__
-#define __BASE_HPP__
-
-#include <time.h>
+#ifndef BASE_HPP
+#define BASE_HPP
 #include <iostream>
 
-class Base
-{
-	public :
-		virtual ~Base();
+#include <ctime>
+
+class Base{
+    public:
+        virtual ~Base() {};
 };
 
-
-
-# endif
+#endif

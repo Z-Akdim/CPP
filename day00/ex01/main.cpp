@@ -1,50 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/09 09:35:14 by zakdim            #+#    #+#             */
+/*   Updated: 2021/08/29 15:20:14 by zakdim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "phonebook.class.hpp"
+#include "PhoneBook.hpp"
 
-int main()
-{    
-    PhoneBook instance;
-    instance.index = 0;
-    while (1)
-    {
-        std::cout << "                         .-'''-. " << std::endl ;
-        std::cout << "                        / .===. \\ " << std::endl ;
-        std::cout << "                        \\/ 6 6 \\/. " << std::endl ;
-        std::cout << "                        ( \\___/ ) " << std::endl ;
-        std::cout << "   _________________ooo__\\_____/_______________________" << std::endl ;
-        std::cout << "  /                                                    \\" << std::endl ;
-        std::cout << "  |                   > ADD                            | " << std::endl ;
-        std::cout << "  |                   > SEARCH                         |" << std::endl ;
-        std::cout << "  |                   > EXIT                           |" << std::endl ;
-        std::cout << "  \\______________________________ooo___________________/" << std::endl ;
-        std::cout << "                        |  |  |" << std::endl ;
-        std::cout << "                        |_ | _|"<< std::endl ;
-        std::cout << "                        |  |  |" << std::endl ;
-        std::cout << "                        |__|__|" << std::endl ;
-        std::cout << "                        /-'Y'-\"" << std::endl ;
-        std::cout << "                        (__/ \\__)" << std::endl ;
+std::string 		hundle_getline(std::string &str)
+{
+    if(!getline(std::cin, str))
+    	exit(0);
+	std::stringstream ss(str);
+	str = "";
+	std::string buffer;
+	while (ss >> buffer)
+	{
+		str += buffer;
+		if (!ss.eof())
+			str += " ";
+	}
+	return str;
+}
 
-        std::cout << "Enter an options : "  ;
-        std::getline(std::cin, instance.option);
-        std::cout << std::endl;
-        if (instance.option == "ADD" ||  instance.option == "add")
-        {
-            instance.setContact(instance.add_contact(), instance.index % 8);
-            instance.index++;
-        }
-        else if (instance.option == "SEARCH" || instance.option == "search")
-        {
-            if (search(instance.getContact(), instance.index) != 0)
-                show_contact(instance.getContact(), instance.index);
-        }
-        else if(instance.option == "EXIT" || instance.option == "exit")
-        {
-            break ;
-        }
-        else
-        {
-            std::cout << "wrong option" << std::endl ;
-        }
-    }
-    return (0);
+int main(void)
+{
+	std::string string;
+	PhoneBook phonebook;
+	Contact contact;
+
+	welcome_phone();
+	while (1)
+	{
+		choice();
+		hundle_getline(string);
+		std::cout<<std::endl;
+		if (string != "ADD" && string != "SEARCH" && string != "EXIT")
+		{
+			std::cout<<"\033[1;31mError: the request you entered does not exist, Enter just(ADD, SEARCH OR EXIT), Please check the request\033[1;0m"<<std::endl;
+			std::cout<<std::endl;
+		}
+		else if (string == "ADD")
+			phonebook.add();
+		else if(string == "SEARCH")
+			phonebook.search();
+		else if(string == "EXIT")
+			exit (0);
+	}
+	return (0);
 }

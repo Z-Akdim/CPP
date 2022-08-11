@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 15:48:58 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/01 15:48:58 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/08/31 10:20:48 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/07 10:39:38 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main()
 {
-	randomChump("zombie");
-	randomChump("zombie2");
-	randomChump("zombie3");
-	return (0);
+    Zombie* akdim = newZombie("newZombie");
+    randomChump("randomChump");
+    delete akdim;
+    return (0);
 }

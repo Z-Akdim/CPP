@@ -3,36 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 17:55:13 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/30 17:55:15 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/29 09:38:47 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/29 14:22:18 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _Clap_TRAP_HPP
-#define _Clap_TRAP_HPP
 
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 #include <iostream>
 
-#define GREEN   "\033[32m"
-#define BOLDGREEN   "\033[1m\033[32m"
-class ClapTrap
-{
-    protected :
-        std::string Name;
-        int Hitpoints;
-        int Energy_points;
-        int Attack_damage;
-    public :
-        ClapTrap();
-        ~ClapTrap();
-        ClapTrap(std::string Name);
-        ClapTrap(const ClapTrap &other);
-        ClapTrap &operator=(const ClapTrap &rhs);
-        void attack(std::string const & target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+class ClapTrap{
+    protected:
+            std::string Name;
+            int Hitpoints;
+            int Energy_points;
+            int Attack_damage;
+    public:
+            void attack(std::string const & target);
+            void takeDamage(unsigned int amount);
+            void beRepaired(unsigned int amount);
+            ClapTrap(ClapTrap const &new_cp);
+            ClapTrap&  operator=(ClapTrap const &new_cp);
+            ClapTrap(std::string);
+            ClapTrap();
+            ~ClapTrap();
 };
 
 #endif

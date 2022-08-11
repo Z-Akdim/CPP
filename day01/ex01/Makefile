@@ -3,27 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+         #
+#    By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/01 17:14:51 by amouhtal          #+#    #+#              #
-#    Updated: 2021/09/12 12:43:40 by amouhtal         ###   ########.fr        #
+#    Created: 2021/08/31 15:28:28 by zakdim            #+#    #+#              #
+#    Updated: 2021/09/04 11:00:42 by zakdim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
-CC = clang++
-FLAGS = -std=c++98 -Wall -Werror -Wextra
-SRCS = main.cpp Zombie.cpp ZombieHorde.cpp
-OBJS = $(SRCS:.cpp=.o)
+NAME = Moar_brainz
 
-%.o:%.cpp *.hpp
-	$(CC) $(FLAGS) -c $< -o $@
-all : $(NAME)
+LIB = Moar_brainz.a
 
-$(NAME) : $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-clean :
-	rm -rf *.o
-fclean : clean
-	rm -rf $(NAME)
-re : fclean all
+SRC = main.cpp Zombie.cpp ZombieHorde.cpp
+
+HEADERS = Zombie.hpp
+
+OBJ = $(SRC:.cpp=.o)
+
+FLAGS = -std=c++98 -Wall -Wextra -Werror
+
+all: $(NAME)
+
+$(NAME) : $(OBJ) 
+	@ar rcs $(LIB) $(OBJ)
+	@clang++  $(FLAGS) $(LIB) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	clang++ $(FLAGS) -o $@ -c $<
+
+clean:
+	@rm -rf $(OBJ) $(LIB)
+
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean all

@@ -3,66 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 17:06:48 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/10/16 18:17:29 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/10/03 09:55:42 by zakdim            #+#    #+#             */
+/*   Updated: 2021/10/07 16:17:21 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
+
 
 int main()
 {
-	try
-	{
-		Bureaucrat school("school", 15);
-		std::cout << school << std::endl;
-		school.incGrade();
-		std::cout << school << std::endl;
-		school.decGrade();
-		std::cout << school << std::endl;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    // const Animal* i = new Cat();
+    // const WrongAnimal* wa = new WrongCat();
+    // const WrongCat* wc = new WrongCat();
 
-	try
-	{
-		Bureaucrat school("school", -5);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    // std::cout << j->getType() << " " << std::endl;
+    // std::cout << i->getType() << " " << std::endl;
+    // i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
+    // wa->makeSound();
+    // wc->makeSound();
 
-	try
-	{
-		Bureaucrat school("school", 200);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl ;
-	}
-
-	try
-	{
-		Bureaucrat school("school", 1);
-		school.incGrade();
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-		try
-	{
-		Bureaucrat school("school", 150);
-		school.decGrade();
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what()<< std::endl;
-	}
+    // delete wc;
+    // delete wa;
+    // delete i;
+    delete j;
+    delete meta;
 }

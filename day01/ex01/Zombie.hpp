@@ -3,30 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 16:35:21 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/01 16:35:21 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/08/31 12:45:53 by zakdim            #+#    #+#             */
+/*   Updated: 2021/08/31 16:04:16 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ZOMBIE_HPP__
-#define __ZOMBIE_HPP__
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 #include <iostream>
 
 class Zombie
 {
-    private :
-        std::string name;
-    public :
-        Zombie();
-        ~Zombie();
-        std::string getZombie(void);
-        void setZombie(std::string name);
-        void announce( void ) const;
+    private:
+            std::string _name_;
+    public:
+            ~Zombie();
+            Zombie();
+            void    setName(std::string);
+            void    announce();
 };
+Zombie* zombieHorde( int N, std::string);
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-Zombie* zombieHorde( int N, std::string name );
 #endif

@@ -1,24 +1,16 @@
-# include "type.hpp"
+#include "checkType.hpp"
+#include "convertType.hpp"
 
 int main(int ac, char **av)
 {
-	std::string str;
-	if (ac != 2)
+	if (ac == 2)
 	{
-		std::cerr << "[ ERROR ] Check Args ! " << std::endl;
-		return 0;
-	}
-	Type nb;
-	nb.setValue(av[1]);
-	str = nb.getValue();
-	nb.parsing(str);
-	if (nb.GetType() != "Invalid Type")
-	{
-		nb.SetTypes();
-		nb.printTypes();
-		return (0);
+            convert_char(av[1]);
+            convert_int(av[1]);
+            convert_float(av[1]);
+            convert_double(av[1]);
 	}
 	else
-		std::cout << "Invalid Type" << std::endl;
-	return (1);
+		std::cout << "ERROR: Number Of Argument Invalid!" << std::endl;
+	return (0);
 }

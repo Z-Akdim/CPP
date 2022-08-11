@@ -1,61 +1,52 @@
-#include "mutantstack.hpp"
-#include <iostream>
+#include "Array.hpp"
+#define MAX_VAL 750
 
-int main()
+int main(int, char**)
 {
-	typedef MutantStack<int, std::list<int> > _MutantStack;
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	_MutantStack mstack;
-	mstack.push(5);
-	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
-	std::cout << "-----size-------" <<  std::endl;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	mstack.pop();
-	std::cout << mstack.size() << std::endl;
-	std::cout << "--------------" <<  std::endl;
-
-	mstack.push(3);
-	mstack.push(5);
-	mstack.push(737);
-	mstack.push(0);
-	_MutantStack::iterator it = mstack.begin();
-	_MutantStack::iterator ite = mstack.end();
-	++it;
-	--it;
-	while (it != ite)
-	{
-		std::cout << *it << std::endl;
-		++it;
-	}
-	std::cout << "--------------" <<  std::endl;
-	
-	_MutantStack::reverse_iterator rit = mstack.rbegin();
-	_MutantStack::reverse_iterator rite = mstack.rend();
-	--rit;
-	++rit;
-	while (rit != rite)
-	{
-		std::cout << *rit << std::endl;
-		++rit;
-	}
-
-	_MutantStack::const_reverse_iterator const crit = mstack.rbegin() ;
-	_MutantStack::const_reverse_iterator const crite = mstack.rend();
-	(void)crit;
-	(void)crite;
-	
-	std::stack<int, std::list<int> > s(mstack);
-
-	MutantStack<int, std::list<int> > ss(mstack);
-	std::cout << "------------\n";
-	int value;
-	while (!ss.empty())
-	{
-		value = ss.top() ;
-		std::cout << value << std::endl;
-		ss.pop();
-	}
-	
-	return 0;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }

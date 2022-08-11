@@ -3,103 +3,84 @@
 #include "B.hpp"
 #include "C.hpp"
 
-
-Base *generate(void)
+Base * generate(void)
 {
-	srand(time(NULL));
+    srand(time(NULL));
+    int random = rand() % 3;
 
-	int randNum;
-	randNum = (rand() % 3);
-	if (randNum == 0)
-	{
-		std::cout << "Type A Created" << std::endl;
-		A *ret = new A();
-		return (ret);
-	}
-	else if (randNum == 1)
-	{
-		std::cout << "Type is B Created" << std::endl;
-		B *ret = new B();
-		return (ret);
-	}
-	else if (randNum == 2)
-	{
-		std::cout << "Type is C Created" << std::endl;
-		C *ret = new C();
-		return (ret);
-	}
-	return 0;
+    if (random == 0)
+        return (new A());
+    else if (random == 1)
+        return (new B());
+    else if (random == 2)
+        return (new C());
+    else
+        return (nullptr);
 }
 
-void identify(Base *p)
+void identify(Base* p)
 {
-	A *a;
-	B *b;
-	C *c;
-
-	a = dynamic_cast<A *>(p);
-	if (a)
-	{
-		std::cout << "Pointer Type is A" << std::endl;
-	}
-	b = dynamic_cast<B *>(p);
-	if (b)
-	{
-		std::cout << "Pointer Type is B" << std::endl;
-	}
-	c = dynamic_cast<C *>(p);
-	if (c)
-	{
-		std::cout << "Pointer Type is C" << std::endl;
-	}
-
+    A *ptr_a = dynamic_cast<A*>(p);
+    if (ptr_a == NULL)
+        std::cout << "Failure Casting to A!" << std::endl;
+    else
+        std::cout << "A" << std::endl;
+    B *ptr_b = dynamic_cast<B*>(p);
+    if (ptr_b == NULL)
+        std::cout << "Failure Casting to B!" << std::endl;
+    else
+        std::cout << "B" << std::endl;
+    C *ptr_c = dynamic_cast<C*>(p);
+    if (ptr_c == NULL)
+        std::cout << "Failure Casting to C!" << std::endl;
+    else
+        std::cout << "C" << std::endl;
 }
 
-void identify(Base &p)
+void identify(Base& p)
 {
-	A a;
-	B b;
-	C c;
+    try
+    {
+        A& a = dynamic_cast<A&>(p);
+        static_cast<void>(a);
+        std::cout << "A" << std::endl;
+    }
 
-	try
-	{
-		a = dynamic_cast<A &>(p);
-		std::cout << "Reference Type is A" << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		;
-	}
+    catch(std::exception e)
+    {
+        std::cerr << "Bad Cast to A!" << '\n';
+    }
 
-	try
-	{
-		b = dynamic_cast<B &>(p);
-		std::cout << "Reference Type is B" << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		;
-	}
+    try
+    {
+        B& b = dynamic_cast<B&>(p);
+        static_cast<void>(b);
+        std::cout << "B" << std::endl;
+    }
 
-	try
-	{
-		c = dynamic_cast<C &>(p);
-		std::cout << "Reference Type is C" << std::endl;
-	}
-	catch (std::exception &e)
-	{
+    catch(std::exception e)
+    {
+        std::cerr << "Bad Cast to B!" << '\n';
+    }
 
-	}
+    try
+    {
+        C& c = dynamic_cast<C&>(p);
+        static_cast<void>(c);
+        std::cout << "C" << std::endl;
+    }
+    
+    catch(std::exception e)
+    {
+        std::cerr << "Bad Cast to C!" << '\n';
+    }
 }
 
 int main()
 {
-	Base *base = generate();
-	Base *base2 = generate();
-
-	std::cout << std::endl;
-	identify(base);
-	identify(*base2);
-	delete base;
-	delete base2;
+    Base *p = generate();
+    identify(p);
+    identify(*p);
+    delete p;
+    return (0);
 }

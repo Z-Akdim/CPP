@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 16:35:30 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/01 16:35:30 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/08/31 12:54:46 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/04 11:03:31 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void Zombie::setZombie(std::string name)
+void    Zombie::setName(std::string name)
 {
-    this->name = name;
+    _name_ = name;
 }
 
 Zombie::Zombie()
 {
-    return ;
+    std::cout << "constructer of Zombie called" << std::endl;  
 }
 
 Zombie::~Zombie()
 {
-    return ;
+    std::cout << "Destructer of Zombie_name: " << this->_name_ << " called" << std::endl;
 }
 
-std::string Zombie::getZombie()
+void    Zombie::announce()
 {
-    return this->name;
+    std::cout << "<" << _name_ << ">" << "  Moar___brainz..." << std::endl;
 }
-

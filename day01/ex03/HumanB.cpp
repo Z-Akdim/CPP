@@ -3,28 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:36:14 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/07 16:36:14 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/01 12:20:16 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/01 12:20:16 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string  name):name(name),weapon(NULL)
+HumanB::HumanB(std::string name)
 {
+    this->_name_ = name;
 }
 
-void HumanB::attack(void) const
+void HumanB::setWeapon(Weapon &w)
 {
-    if (this->weapon)
-        std::cout << this->name << " attacks with his " << this->weapon->getType() << std::endl;
-    else
-        std::cout << "weapon not set\n";
+    this->Weapon_b = &w;
 }
 
-void HumanB::setWeapon(Weapon &Weapon)
+void HumanB::attack()
 {
-    this->weapon = &Weapon;
+    if (this->Weapon_b)
+        std::cout << this->_name_ << "  attacks with his " << this->Weapon_b->getType() << std::endl;
+}
+
+HumanB::~HumanB()
+{
+    return ;
 }

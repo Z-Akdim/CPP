@@ -3,29 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:36:19 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/07 16:36:19 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/02 13:04:41 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/02 14:49:41 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __HUMAN_B__HPP__
-#define __HUMAN_B__HPP__
-
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 #include <iostream>
-#include <string>
-#include "Weapon.hpp"
+#include "./Weapon.hpp"
 
 class HumanB
 {
-	private:
-		std::string name;
-		Weapon *weapon;
-	public:
-		HumanB(std::string  name);
-		void setWeapon(Weapon &Weapon);
-		void attack(void) const;
+    private :
+        std::string _name_;
+        Weapon *Weapon_b;
+    public:
+        HumanB(std::string name);
+        ~HumanB();
+        void setWeapon(Weapon &w);
+        void    attack();
 };
 
 #endif

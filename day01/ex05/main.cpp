@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 12:19:37 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/09 12:19:37 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/01 12:21:45 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/01 12:21:45 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int main()
 {
-    Karen instance;
-    instance.complain("DEBUG");
-    instance.complain("INFO");
-    instance.complain("WARNING");
-    instance.complain("ERROR");
+    Karen   _Karen;
+    _Karen.complain("ERROR");
     return (0);
 }

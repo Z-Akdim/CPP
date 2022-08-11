@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 16:45:33 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/17 16:45:34 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/27 14:20:09 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/27 14:20:11 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main(void)
-{
+int main( void ) {
     Fixed a;
-    Fixed const b(10);
-    Fixed const c(42.42f);
-    Fixed const d(b);
-    a = Fixed(1234.4321f);
+    Fixed const b( 10 );
+    Fixed const c( 42.42f );
+    Fixed const d( b );
+
+    a = Fixed( 1234.4321f );
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;
     std::cout << "c is " << c << std::endl;

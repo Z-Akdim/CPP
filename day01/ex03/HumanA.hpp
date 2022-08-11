@@ -3,28 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:36:06 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/07 16:36:06 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/02 13:04:55 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/02 14:44:04 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __HUMAN_A__HPP__
-#define __HUMAN_A__HPP__
-
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
+#include "./Weapon.hpp"
 
 class HumanA
 {
-	private:
-		std::string name;
-		Weapon &weapon;
-	public:
-		HumanA(std::string  name, Weapon &weapon);
-		void attack(void) const;
+    private:
+        std::string _name_;
+        Weapon *weapon_A;
+    public:
+        HumanA(std::string name, Weapon &w);
+        void attack();
+        HumanA();
+        ~HumanA();
 };
 
 #endif

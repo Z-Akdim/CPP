@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 16:45:55 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/21 17:17:41 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/27 13:18:13 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/27 13:18:19 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
 
-int main(void) {
+int main(void)
+{
     Fixed a;
-    Fixed b(a);
+    Fixed b( a );
     Fixed c;
     c = b;
     std::cout << a.getRawBits() << std::endl;

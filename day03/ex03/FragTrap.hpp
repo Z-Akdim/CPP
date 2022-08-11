@@ -1,30 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 17:57:38 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/30 17:57:39 by amouhtal         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-
-#ifndef _FRAG_TRAP_HPP_
-#define _FRAG_TRAP_HPP_
-
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+#include <iostream>
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
-{
-    public :
-        FragTrap();
-        ~FragTrap();
-        FragTrap(std::string Name);
-        FragTrap(const FragTrap &other);
-        FragTrap &operator=(const FragTrap &rhs);
-        void highFivesGuys(void);
+class FragTrap : virtual public ClapTrap{
+
+    public:
+            FragTrap();
+            ~FragTrap();
+            FragTrap(std::string);
+            void highFivesGuys(void);
+            FragTrap(FragTrap const &cop);
+            FragTrap& operator=(FragTrap const &cop);
+            // void    attack(std::string const & target);
 };
 
 #endif

@@ -3,35 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 16:45:44 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/17 16:46:39 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/27 14:19:59 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/27 14:20:01 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FIXED__
-#define __FIXED__
-
+#ifndef FIXED_HPP
+#define FIXED_HPP
 #include <iostream>
 #include <cmath>
-class Fixed
-{
-    private :
-        int _value;
-        static const int faction_bits;
-    public :
+
+class Fixed{
+
+    private:
+        int fixed_point_value;
+        static const int nbr_Fractional_bits = 8;
+    public:
+        Fixed(const int int_nbr);
+        Fixed(const float fl_nbr);
+        float toFloat( void ) const;
+        int toInt( void ) const;
+        Fixed& operator=(const Fixed &cop);
+        int getRawBits( void ) const;
+        void setRawBits( int const raw );
+        Fixed(Fixed const &cop);
         Fixed();
         ~Fixed();
-        Fixed(const int nbr);
-        Fixed(const float nbr);
-        Fixed(const Fixed &other);
-        Fixed  &operator=(const Fixed &other);
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
-        float toFloat(void) const;
-        int toInt(void) const; 
 };
-
-std::ostream &operator<<(std::ostream &out, Fixed const &rhs);
+std::ostream&        operator<<(std::ostream &ostr, const Fixed &val);
 #endif

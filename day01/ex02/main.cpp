@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 17:52:39 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/01 17:52:39 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/08/31 18:18:31 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/07 10:53:17 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<iostream>
+#include <iostream>
+
 
 int main()
 {
     std::string str = "HI THIS IS BRAIN";
-
-    std::string *stringPTR = &str;
+    std::string *stringPTR;
+	stringPTR = &str;
     std::string &stringREF = str;
 
-    std::cout << &str << std::endl;
-    std::cout << stringPTR << std::endl;
-    std::cout << &stringREF << std::endl;
-    std::cout << *stringPTR << std::endl;
-    std::cout << stringREF << std::endl;
-    return (0);
+  	std::cout << "Adress memory of the string    : " << &str <<std::endl;
+	std::cout << "Adress memory of the stringPTR : " << stringPTR <<std::endl;
+	std::cout << "Adress memory of the stringREF : " << &stringREF <<std::endl;
+	std::cout << "Pointer to str                 : " << *stringPTR <<  std::endl;
+	std::cout << "Reference to str              : " << stringREF << std::endl;
 }

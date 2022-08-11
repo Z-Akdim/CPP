@@ -3,40 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 17:56:25 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/10/01 11:41:32 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/29 09:38:42 by zakdim            #+#    #+#             */
+/*   Updated: 2021/10/01 10:26:43 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main()
-{
-    FragTrap instance0;
-    FragTrap instance1("fragtrap");
-    FragTrap instance2(instance1);
-    instance2.attack("target");
-    instance2.takeDamage(50);
-    instance2.beRepaired(40);
-    instance2.highFivesGuys();
-
-    // std::cout << "------------------------------------------" << std::endl;
-    // ClapTrap C_instance0;
-    // ClapTrap C_instance1("claptrap");
-    // ClapTrap C_instance2(C_instance1);
-    // C_instance2.attack("target");
-    // C_instance2.takeDamage(30);
-    // C_instance2.beRepaired(20);
-
-    // std::cout << "------------------------------------------" << std::endl;
-
-    // ScavTrap S_instance0;
-    // ScavTrap S_instance1("scavtrap");
-    // ScavTrap S_instance2(S_instance1);
-    // S_instance2.guardGate();
-
+int main(){
     
+    // ClapTrap clp("zakarya");
+    // clp.attack("soufiane");
+    // clp.takeDamage(7);
+    // clp.beRepaired(3);
+
+
+    // ScavTrap Sca("Akdim");
+    // Sca.attack("El-hamri");
+    // Sca.takeDamage(70);
+    // Sca.beRepaired(20);
+    // Sca.guardGate();
+
+    FragTrap Frag("Akdim");
+    Frag.attack("El-hamri");
+    Frag.takeDamage(80);
+    Frag.beRepaired(90);
+    Frag.highFivesGuys();
 }

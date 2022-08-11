@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 16:46:00 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/21 17:13:37 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/27 13:18:02 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/27 13:21:42 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FIXED__
-#define __FIXED__
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
 class Fixed
 {
-    private :
-        int _value;
-        static const int faction_bits;
-    public :
-        Fixed();
-        ~Fixed();
-        Fixed(const Fixed &other);
-        Fixed  &operator=(const Fixed &other);
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+private:
+	int fixed_point_value;
+	static const int nbr_Fractional_bits = 8;
+public:
+	Fixed();
+	Fixed(Fixed const& rhs);
+	~Fixed();
+	Fixed&	operator= (Fixed const & rhs);
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
 };
 
 #endif

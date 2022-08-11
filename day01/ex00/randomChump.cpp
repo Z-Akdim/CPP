@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 15:49:11 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/01 15:49:11 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/08/31 10:32:26 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/07 11:49:21 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void randomChump(std::string name)
+void randomChump( std::string name )
 {
-    Zombie *instance;
-
-    instance = newZombie(name);
-    instance->announce();
-    delete instance;
+    Zombie akdim(name);
+    akdim.setName(name);
+    akdim.announce();
 }

@@ -1,38 +1,19 @@
-#include <iostream>
+#include "Serialization.hpp"
 
-struct Data
+int main()
 {
-	int x;
-	int y;
-};
+    Data *d = new Data;
+    d->str1 = "hello";
+    d->nb = 1337;
+    std::cout << d << "\t" << d->str1 + ", " << d->nb << std::endl;
 
-uintptr_t serialize(Data* ptr)
-{
-	return (reinterpret_cast<uintptr_t>(ptr));
-}
+    std::cout << "Call Function Serialize()" << std::endl;
+    uintptr_t ui = serialize(d);
+    std::cout << &ui << "\t" << ui << std::endl;
 
-Data* deserialize(uintptr_t raw)
-{
-	return (reinterpret_cast<Data *>(raw));
-}
-
-int	main()
-{
-	Data *d = new Data();
-	uintptr_t raw ;
-
-	d->x = 5;
-	d->y = 10;
-
-	std::cout << d->x << std::endl;
-	std::cout << d->y << std::endl;
-	raw = serialize(d);
-	std::cout << "serialize function called " << std::endl;
-	Data *d2;
-
-	d2 = deserialize(raw);
-	std::cout << d2->x << std::endl;
-	std::cout << d2->y << std::endl;
-	std::cout << "deserialize function called " << std::endl;
-	delete d;
+    std::cout << "Call Function Deserialize()" << std::endl;
+    d = deserialize(ui);
+    std::cout << d << "\t" << d->str1 + ", " << d->nb<< std::endl;
+    
+    delete d;
 }

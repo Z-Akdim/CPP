@@ -3,27 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+         #
+#    By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/07 16:35:46 by amouhtal          #+#    #+#              #
-#    Updated: 2021/10/07 18:00:46 by amouhtal         ###   ########.fr        #
+#    Created: 2021/08/31 18:18:20 by zakdim            #+#    #+#              #
+#    Updated: 2021/09/01 11:43:57 by zakdim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brain
-CC = g++
-FLAGS = -Wall -Wextra -Werror
-SRCS = main.cpp 
-OBJS = $(SRCS:.cpp=.o)
+NAME = Brain
 
-%.o:%.cpp %.hpp
-	$(CC) $(FLAGS) -c $< -o $@
-all : $(NAME)
+COMPILER = clang++
 
-$(NAME) : $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-clean :
-	rm -rf *.o
-fclean : clean
+WFLAG = -std=c++98 -Wall -Werror -Wextra
+
+SRC = main.cpp
+
+OBJ = $(SRC:.cpp=.o)
+
+all:
+	$(COMPILER) $(WFLAG) -c $(SRC)
+	$(COMPILER) $(OBJ) -o $(NAME)
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
 	rm -rf $(NAME)
-re : fclean all
+
+re: fclean all

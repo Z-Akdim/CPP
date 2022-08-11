@@ -1,53 +1,38 @@
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "Intern.hpp"
+#include "AMateria.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
-	log("---->Tests 1<----");
-	try
-	{
-		Intern ahmed;
-		Form *task;
-		task = ahmed.makeForm("RobotoMy Request", "Pardon");
-		log(task->getName());
-	
-		delete task;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	log("---->Tests 2<----");
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+    
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    // tmp = src->createMateria("ice");
+    // me->equip(tmp);
+    // tmp = src->createMateria("cure");
+    // me->equip(tmp);
 
-	try
-	{
-		Intern ahmed;
-		Form *task;
-		task = ahmed.makeForm("Shrubbery Creation", "home");
-		log(task->getName());
-		delete task;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    ICharacter* bob = new Character("bob");
 
-	log("---->Tests 3<----");
+    me->unequip(1);
+    me->use(0, *bob);
+    me->use(1, *bob);
+    // me->use(2, *bob);
+    // me->use(3, *bob);
 
-	try
-	{
-		Intern ahmed;
-		Form *task;
-		task = ahmed.makeForm("RbotMyRequest", "error");
-		log(task->getName());
-		delete task;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    delete bob;
+    delete me;
+    delete src;
+    
+    return 0;
 }

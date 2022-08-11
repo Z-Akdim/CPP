@@ -3,38 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 16:35:03 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/01 16:35:03 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/08/31 14:04:54 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/06 11:58:50 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void Zombie::announce( void ) const
-{
-    std::cout << this->name << " BraiiiiiiinnnzzzZ..."<< std::endl;
-}
-
 int main()
 {
-    int N;
-    int i;
-    Zombie *zombie;
+	int N;
 
     N = 8;
-    i = 0;
-
-	zombie = zombieHorde(N, "zombie");
-	if (zombie)
+	if (N <= 0)
 	{
-		while (i < N)
-		{
-			zombie[i].announce();
-			i++;
-		}
-		delete [] zombie;
+		std::cout << "Error : you should add number greater than  0" << std::endl;
+		return (0);
 	}
-    return (0);
+	Zombie *Zomb = zombieHorde(N, "zombiehorde");
+	delete[] Zomb;
+	return (0);
 }

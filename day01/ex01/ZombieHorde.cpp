@@ -3,33 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/01 16:35:14 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/01 16:35:14 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/08/31 12:56:26 by zakdim            #+#    #+#             */
+/*   Updated: 2021/08/31 16:04:24 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <iostream>
 
 Zombie* zombieHorde( int N, std::string name )
 {
-    int i = 0;
-    std::string new_str;
-
-    Zombie *zombie ;
-
-    zombie = NULL;
-    if (N > 0)
+    std::string new_string;
+    
+    Zombie *zomb = new Zombie[N];
+    for (int i = 0; i < N; i++)
     {
-        zombie = new Zombie[N];
-        while (i < N)
-        {
-            new_str = name + std::to_string(i);
-            zombie[i].setZombie(new_str);
-            i++;
-        }
+        new_string = name + std::to_string(i);
+        zomb[i].setName(new_string);
+        zomb[i].announce();
     }
-    return zombie;
+    return zomb;
 }

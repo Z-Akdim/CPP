@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:36:39 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/09/07 16:36:39 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/09/02 12:55:38 by zakdim            #+#    #+#             */
+/*   Updated: 2021/09/02 13:03:11 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WEAPON_HPP__
-#define __WEAPON_HPP__
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
+#include <iostream>
 
-#include<iostream>
-
-
-class Weapon
-{
-    std::string type;
-    public :
-        Weapon(std::string type);
-        std::string const    &getType();
-        void            setType(std::string type);
+class Weapon {
+    private:
+            std::string type;
+    public:
+          Weapon(std::string);
+          void  setType(std::string);
+          const std::string&  getType();
+          ~Weapon();
 };
 
 #endif

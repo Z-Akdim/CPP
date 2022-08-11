@@ -2,44 +2,24 @@
 
 Brain::Brain()
 {
-	log("Brain Default Constructor");
+    std::cout << "Constructor Default the Brain is Called!" << std::endl;
 }
 
-Brain::Brain(const Brain &other)
+Brain::Brain(const Brain &new_cp)
 {
-	log("Brain Copy Constructor");
-	*this = other;
+    std::cout << "Constructor Copy the Brain is Called!" << std::endl;
+    *this = new_cp;
 }
 
-Brain &Brain::operator=(const Brain &rhs)
+Brain &Brain::operator= (const Brain &new_cp)
 {
-	log("Brain Assignation operator");
-	if(this == &rhs)
-		return *this;
-	for (size_t i = 0; i < 100; i++)
-	{
-		this->ideas[i] = rhs.ideas[i];
-	}
-	return (*this);
-}
-
-void Brain::setIdeas(std::string c)
-{
-	// log("Brain Paramitrise Constructor");
-	std::string str;
-	for (size_t i = 0; i < 100; i++)
-	{
-		str = c + std::to_string(i);
-		ideas[i] = str;
-	}
-}
-
-std::string const *Brain::getIdeas( void ) const
-{
-	return (this->ideas);
+    std::cout << "Assignement operator is Called!" << std::endl;
+    for (int i = 0; i < 100; i++)
+        this->ideas[i] = new_cp.ideas[i];
+    return (*this);
 }
 
 Brain::~Brain()
 {
-	log("Brain Destructor Called");
+    std::cout << "destructor the Brain is Called!" << std::endl;
 }

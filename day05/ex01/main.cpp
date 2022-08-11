@@ -1,41 +1,47 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 17:07:17 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/10/16 18:47:18 by amouhtal         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int main()
 {
-	try
-	{
-		Form ta("Form", 50, 10);
-		Bureaucrat school("school", 55);
-		school.signForm(ta);
+    // int nbr = 10;
+    // const Animal* j = new Dog();
+    // const Animal* i = new Cat();
 
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what();
-	}
+    // std::cout << i->getType() << std::endl;
+    // Animal *ptr[nbr];
 
-	try
-	{
-		Form ta("Form", 50, 10);
-		Bureaucrat school("school", 49);
-		school.signForm(ta);
+    // for(int i = 0; i <= nbr; i++)
+    // {
+    //     if ((i) < (nbr / 2))
+    //     {
+    //         ptr[i] = new Dog();
+    //         std::cout << "dog===>" << i << std::endl;
+    //     }
+    //     else
+    //     {
+    //         ptr[i] = new Cat();
+    //         std::cout << "cat===>" << i << std::endl;
+    //     }
+    // }
 
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what();
-	}
+    // for (int i = 0; i < nbr; i++)
+    // {
+    //     delete ptr[i];
+    // }
+ 
+    std::cout << "------------------------------------" << std::endl;
+    Cat c1;
+    Cat c2 = c1;
+    c1.print_brain(c1);
+    c2.print_brain(c2);
+    std::cout << "------------------------------------" << std::endl;
+    Dog d1;
+    Dog d2(d1);
+    d1.print_brain(d1);
+    d2.print_brain(d2);
+    // std::cout << "------------------------------------" << std::endl;
+
+    // delete j;
+    // delete i;
 }

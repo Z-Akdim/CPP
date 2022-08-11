@@ -1,13 +1,8 @@
-#ifndef __A__
-#define __A__
+#ifndef A_HPP
+#define A_HPP
 
-#include <time.h>
-#include <iostream>
 #include "Base.hpp"
 
-class A : public Base
-{
-
+class A : public Base{
 };
-
-# endif
+#endif

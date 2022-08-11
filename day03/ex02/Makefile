@@ -3,27 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+         #
+#    By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/30 17:56:33 by amouhtal          #+#    #+#              #
-#    Updated: 2021/09/30 17:56:34 by amouhtal         ###   ########.fr        #
+#    Created: 2021/09/29 09:38:58 by zakdim            #+#    #+#              #
+#    Updated: 2021/09/29 15:16:52 by zakdim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fragtrap
-CC = clang++
-FLAGS = -std=c++98 -Wall -Werror -Wextra
-SRCS = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp
-OBJS = $(SRCS:.cpp=.o)
+NAME = FragTrap
 
-%.o:%.cpp *.hpp
-	$(CC) $(FLAGS) -c $< -o $@
-all : $(NAME)
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-$(NAME) : $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-clean :
-	rm -rf *.o
-fclean : clean
+CC  = clang++
+
+SRC =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+
+HDR = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp $(HDR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
 	rm -rf $(NAME)
-re : fclean all
+
+re: fclean $(NAME)

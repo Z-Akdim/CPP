@@ -4,54 +4,44 @@
 
 int main()
 {
-	int count;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	count = 4;
+    // int nbr = 10;
+    // const Animal* j = new Dog();
+    // const Animal* i = new Cat();
 
-	Animal *animals[count];
-	for (int i = 0; i < count / 2; i++)
-	{
-		animals[i] = new Cat();
-		animals[i + 2] = new Dog();
-	}
-	for (int i = 0; i < count; i++)
-	{
-			delete animals[i];
-	}
+    // std::cout << i->getType() << std::endl;
+    // Animal *ptr[nbr];
 
-	delete j;
-	delete i;
+    // for(int i = 0; i <= nbr; i++)
+    // {
+    //     if ((i) < (nbr / 2))
+    //     {
+    //         ptr[i] = new Dog();
+    //         std::cout << "dog===>" << i << std::endl;
+    //     }
+    //     else
+    //     {
+    //         ptr[i] = new Cat();
+    //         std::cout << "cat===>" << i << std::endl;
+    //     }
+    // }
 
-	log("---------->Deep Copy Cat<----------");
-	{ 
-		Cat c1;
-		c1.setbrain("c");
-		Cat c2(c1);
+    // for (int i = 0; i < nbr; i++)
+    // {
+    //     delete ptr[i];
+    // }
+ 
+    std::cout << "------------------------------------" << std::endl;
+    Cat c1;
+    Cat c2 = c1;
+    c1.print_brain(c1);
+    c2.print_brain(c2);
+    std::cout << "------------------------------------" << std::endl;
+    Dog d1;
+    Dog d2(d1);
+    d1.print_brain(d1);
+    d2.print_brain(d2);
+    // std::cout << "------------------------------------" << std::endl;
 
-		std::cout << c1.getType() << std::endl;
-		c1.getbrain();
-		c2.getbrain();
-
-		c2.setbrain("s");
-
-		c1.getbrain();
-		c2.getbrain();
-	}
-	log("---------->Deep Copy Dog<----------");
-	{
-		Dog d1;
-		d1.setbrain("d");
-		Dog d2(d1);
-
-		std::cout << d1.getType() << std::endl;
-		d1.getbrain();
-		d2.getbrain();
-
-		d2.setbrain("f");
-
-		d1.getbrain();
-		d2.getbrain();
-	}
-	return (0);
+    // delete j;
+    // delete i;
 }

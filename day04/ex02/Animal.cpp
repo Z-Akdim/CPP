@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouhtal <amouhtal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zakdim <zakdim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/02 13:18:42 by amouhtal          #+#    #+#             */
-/*   Updated: 2021/10/27 11:09:32 by amouhtal         ###   ########.fr       */
+/*   Created: 2021/10/03 09:55:11 by zakdim            #+#    #+#             */
+/*   Updated: 2021/10/03 09:55:15 by zakdim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,34 @@
 
 Animal::Animal()
 {
-	log("Animal  default constructor");
+    std::cout << "Constructor Default the Animal is Called!" << std::endl;
 }
 
-void Animal::makeSound( void ) const
-{
-	std::cout << "hello\n";
+Animal::Animal(const Animal &new_cp)
+{ 
+    std::cout << "copy constructor the Animal is called" << std::endl;
+    *this = new_cp;
 }
 
-Animal::Animal(const Animal &other)
+Animal &Animal::operator=(const Animal &new_cp)
 {
-	this->type = other.type;
-	// log("Animal  default copy constructor");
+    std::cout << "Assigned operator the Animal is called" << std::endl;
+    if (this != &new_cp)
+        this->type = new_cp.type;
+    return (*this);
 }
 
-Animal &Animal::operator=(const Animal &other)
+std::string    Animal::getType() const
 {
-	this->type = other.type;
-	return *this;
+    return (this->type);
 }
 
-std::string Animal::getType() const
+void    Animal::makeSound() const
 {
-	return (this->type);
+        std::cout << "Animal makeSound Called!" << std::endl;
 }
 
 Animal::~Animal()
 {
-	log("Animal deconstructor");
+    std::cout << "destructor the Animal is Called!" << std::endl;
 }
